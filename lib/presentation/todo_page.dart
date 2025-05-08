@@ -126,7 +126,10 @@ class TodoPage extends StatelessWidget {
                                 SizedBox(height: 4.0),
                                 Text(todo.isCompleted ? 'Completed' : 'Not Completed', style: TextStyle(color: todo.isCompleted ? Colors.green : Colors.red)),
                               ],
-                            )
+                            ),
+                            Checkbox(value: todo.isCompleted, onChanged: (value) {
+                              context.read<TodoBloc>().add(TodoEventComplete(index: index));
+                            })
                           ],),
                         )
                       })
