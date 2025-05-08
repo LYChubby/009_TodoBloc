@@ -82,17 +82,17 @@ class TodoPage extends StatelessWidget {
                           final selectedDate = context.read<TodoBloc>().state;
                           if (selectedDate is TodoLoaded) {
                             context.read<TodoBloc>().add(
-                            TodoEventAdd(
-                              title: _controller.text,
-                              date: selectedDate.selectedDate!,
-                            ),
-                          );
-                          _controller.clear();
-                          selectedDate.selectedDate = null;
+                              TodoEventAdd(
+                                title: _controller.text,
+                                date: selectedDate.selectedDate!,
+                              ),
+                            );
+                            _controller.clear();
+                            selectedDate.selectedDate = null;
                           }
                         }
-                      }    
-                      child: child,
+                      },
+                      child: Text('Tambah'),
                     ),
                   ],
                 ),
