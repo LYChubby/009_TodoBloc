@@ -16,6 +16,7 @@ class TodoPage extends StatelessWidget {
           child: Column(
             children: [
               Text('Todo List'),
+              SizedBox(height: 16.0),
               Row(
                 children: [
                   Column(
@@ -57,6 +58,7 @@ class TodoPage extends StatelessWidget {
                   ),
                 ],
               ),
+              SizedBox(height: 16.0),
               Form(
                 key: _key,
                 child: Row(
@@ -76,6 +78,7 @@ class TodoPage extends StatelessWidget {
                         },
                       ),
                     ),
+                    SizedBox(width: 16.0),
                     FilledButton(
                       onPressed: () {
                         if (_key.currentState!.validate()) {
