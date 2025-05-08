@@ -79,14 +79,17 @@ class TodoPage extends StatelessWidget {
                     FilledButton(
                       onPressed: () {
                         if (_key.currentState!.validate()) {
-                          context.read<TodoBloc>().add(
+                          final selectedDate = context.read<TodoBloc>().state;
+                          if (selectedDate is TodoLoaded) {
+                            context.read<TodoBloc>().add(
                             TodoEventAdd(
                               title: _controller.text,
-                              date: DateTime.now(),
+                              date: selectedDate.selectedDate!,
                             ),
                           );
+                          }
                         }
-                      },
+                      }    
                       child: child,
                     ),
                   ],
