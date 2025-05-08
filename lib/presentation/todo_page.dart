@@ -76,6 +76,19 @@ class TodoPage extends StatelessWidget {
                         },
                       ),
                     ),
+                    FilledButton(
+                      onPressed: () {
+                        if (_key.currentState!.validate()) {
+                          context.read<TodoBloc>().add(
+                            TodoEventAdd(
+                              title: _controller.text,
+                              date: DateTime.now(),
+                            ),
+                          );
+                        }
+                      },
+                      child: child,
+                    ),
                   ],
                 ),
               ),
