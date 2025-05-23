@@ -35,8 +35,8 @@ class Todo {
     return <String, dynamic>{
       'id': id,
       'title': title,
-      'date': date.millisecondsSinceEpoch,
-      'isCompleted': isCompleted,
+      'date': date.toIso8601String(),
+      'isCompleted': isCompleted ? 1 : 0,
       'address': address,
     };
   }
@@ -46,7 +46,7 @@ class Todo {
       id: map['id'] != null ? map['id'] as int : null,
       title: map['title'] as String,
       date: DateTime.fromMillisecondsSinceEpoch(map['date'] as int),
-      isCompleted: map['isCompleted'] as bool,
+      isCompleted: map['isCompleted'] == 1,
       address: map['address'] as String,
     );
   }
